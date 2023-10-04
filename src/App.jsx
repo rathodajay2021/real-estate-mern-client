@@ -1,14 +1,12 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
+import { BrowserRouter } from "react-router-dom";
+import Website from "./Components/Website";
 
 function App() {
-
   return (
-    <div className="text-red-500">
-      project begin
-    </div>
-  )
+    <BrowserRouter>
+      <Website />
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
