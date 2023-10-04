@@ -1,9 +1,13 @@
-import Route from "../Routes/Route"
+import Route from "../Routes/Route";
+import Header from "./Common/Header/Header";
 
 const Website = () => {
   return (
-    <div><Route /></div>
-  )
-}
+    <div>
+      <Header />
+      <Route />
+    </div>
+  );
+};
 
-export default Website
+export default Website;
