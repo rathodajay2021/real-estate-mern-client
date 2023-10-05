@@ -12,7 +12,7 @@ const BEFORE_LOGIN_ACCESSIBLE_PATHS = [URL_SIGN_UP, URL_SIGN_IN];
 const Route = () => {
   const navigate = useNavigate();
   // const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
   useEffect(() => {
     if (

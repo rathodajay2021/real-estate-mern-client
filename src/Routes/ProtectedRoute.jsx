@@ -8,7 +8,7 @@ import { URL_SIGN_IN } from "../Utils/Path";
 import PropTypes from "prop-types";
 
 const ProtectedRoute = (props) => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   // const isLoggedIn = useSelector((state) => state.Auth.isLoggedIn);
 
   return (
