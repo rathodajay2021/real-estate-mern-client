@@ -16,4 +16,5 @@ export const AXIOS_API = axios.create({baseURL: DEFAULT_URL})
 
 export const API_URL = {
   SIGN_UP: "/user/signup",
+  SIGN_IN: "/user/sign-in",
 };

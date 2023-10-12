@@ -1,10 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
 import Website from "./Components/Website";
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Website />
     </BrowserRouter>
   );

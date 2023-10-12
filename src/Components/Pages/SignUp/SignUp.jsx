@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { API_URL, AXIOS_API, URL_HOME, URL_SIGN_IN } from "../../../Utils/Path";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import CODES from "../../../Utils/StatusCodes";
 
 const SignUp = () => {
@@ -31,7 +31,6 @@ const SignUp = () => {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <ToastContainer />
       <h1 className="text-3xl text-center font-semibold my-7">Sign Up</h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
         <input
