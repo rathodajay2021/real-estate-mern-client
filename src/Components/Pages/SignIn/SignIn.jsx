@@ -2,31 +2,35 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 
 //CUSTOM
-import {
-  API_URL,
-  AXIOS_API,
-  URL_HOME,
-  URL_SIGN_UP,
-} from "../../../Utils/Path";
+import { API_URL, AXIOS_API, URL_HOME, URL_SIGN_UP } from "../../../Utils/Path";
 import CODES from "../../../Utils/StatusCodes";
+import { login } from "../../../Redux/Slice/AuthSlice";
+import { OAuth } from "../OAuth";
 
 const SignIn = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
     try {
       setLoading(true);
-      e.preventDefault()
+      e.preventDefault();
       const response = await AXIOS_API.post(API_URL.SIGN_IN, {
-        email:  e.target.email.value,
+        email: e.target.email.value,
         password: e.target.password.value,
       });
       if (response.status === CODES.SUCCESS) {
+        console.log(
+          "🚀 ~ file: SignIn.jsx:28 ~ handleSubmit ~ response:",
+          response
+        );
+        dispatch(login(response?.data?.data));
         toast.success(response.data.message);
-        navigate({pathname: URL_HOME});
+        navigate({ pathname: URL_HOME });
         setLoading(false);
       }
     } catch (error) {
@@ -51,12 +55,13 @@ const SignIn = () => {
           id="password"
         />
         <button
-          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+          className="bg-slate-700 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80"
           type="submit"
           disabled={loading}
         >
           {loading ? "Loading..." : "Sign In"}
         </button>
+        <OAuth />
       </form>
       <div className="flex gap-2 mt-5">
         <p>{`Don't have an account?`}</p>
